@@ -4,6 +4,7 @@ import PersonalInfoView from "@/views/questionnaire/PersonalInfoView.vue"
 import CovidConditionView from "@/views/questionnaire/CovidConditionView.vue";
 import HadVaccineView from "@/views/questionnaire/HadVaccineView.vue";
 import CovidPoliticsView from "@/views/questionnaire/CovidPoliticsView.vue";
+import ThankYouView from "@/views/ThankYouView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
             path: '/kitkhvari/covid-politika',
             name: 'questionnaire.covid_politics.show',
             component: CovidPoliticsView
+        },
+        {
+            path: '/madloba',
+            name: 'thank_you.show',
+            component: ThankYouView
         }
     ]
 })

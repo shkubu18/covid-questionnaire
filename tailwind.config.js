@@ -8,7 +8,8 @@ export default {
         extend: {
             colors: {
                 'main-background': '#EAEAEA',
-                'button-color': '#208298'
+                'button-color': '#208298',
+                'thanks-page-background': '#232323'
             },
             width: {
                 'logo-width': '100px',
@@ -25,6 +26,9 @@ export default {
                 '620': '620',
                 '280': '280px',
                 '575': '575px'
+            },
+            letterSpacing: {
+                'widest': '0.2em'
             }
         },
     },
