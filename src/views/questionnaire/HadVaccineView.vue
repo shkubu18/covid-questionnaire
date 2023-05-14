@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-main-background px-48 py-24 relative">
+    <the-main>
         <the-header page="3/4"></the-header>
         <had-vaccine-form></had-vaccine-form>
 
@@ -13,9 +13,10 @@
                 class="absolute top-44 right-[620px]"
                 src="@/assets/images/had-vaccine/star.png"
         />
-    </div>
+    </the-main>
 </template>
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import HadVaccineForm from "@/components/had-vaccine/HadVaccineForm.vue";
+import TheMain from "@/components/shared/TheMain.vue";
 </script>

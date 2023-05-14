@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-main-background px-48 py-24 relative">
+    <the-main>
         <the-header page="2/4"></the-header>
         <covid-condition-form></covid-condition-form>
 
@@ -13,10 +13,10 @@
                 class="absolute top-370 right-800"
                 src="@/assets/images/covid-condition/red-circle.png"
         />
-    </div>
-
+    </the-main>
 </template>
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import CovidConditionForm from "@/components/covid-condition/CovidConditionForm.vue";
+import TheMain from "@/components/shared/TheMain.vue";
 </script>

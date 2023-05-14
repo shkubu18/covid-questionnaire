@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-main-background px-48 py-24 relative">
+    <the-main>
         <the-header page="4/4"></the-header>
 
         <p class="text-2xl w-heading-text mb-12">
@@ -21,9 +21,10 @@
                 class="absolute top-280 right-575"
                 src="@/assets/images/covid-politics/red-heart.png"
         />
-    </div>
+    </the-main>
 </template>
 <script setup>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import CovidPoliticsForm from "@/components/covid-politics/CovidPoliticsForm.vue";
+import TheMain from "@/components/shared/TheMain.vue";
 </script>
