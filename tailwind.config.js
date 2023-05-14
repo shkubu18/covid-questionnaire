@@ -7,7 +7,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                'home-background': '#EAEAEA',
+                'main-background': '#EAEAEA',
             },
             width: {
                 'logo-width': '100px'
