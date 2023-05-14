@@ -4,12 +4,12 @@
         <covid-condition-form></covid-condition-form>
 
         <img
-                alt="boy and girl"
+                alt="boy with cap"
                 class="absolute top-28 right-40 z-10"
                 src="@/assets/images/covid-condition/background.png"
         />
         <img
-                alt="yellow line"
+                alt="red circle"
                 class="absolute top-370 right-800"
                 src="@/assets/images/covid-condition/red-circle.png"
         />
