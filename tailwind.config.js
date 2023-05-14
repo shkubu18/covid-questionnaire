@@ -14,6 +14,9 @@ export default {
             },
             textShadow: {
                 'default': '1px 1px 0px white, 2px 1px 0px black'
+            },
+            spacing: {
+                '325': '325px'
             }
         },
     },
