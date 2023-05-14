@@ -24,7 +24,6 @@ export default {
     },
     plugins: [
         require('tailwindcss-textshadow'),
-        require('@tailwindcss/forms'),
     ],
 }
 
