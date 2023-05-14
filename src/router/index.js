@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PersonalInfoView from "@/views/questionnaire/PersonalInfoView.vue"
+import CovidConditionView from "@/views/questionnaire/CovidConditionView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
             path: '/kitkhvari/piradi-informacia',
             name: 'questionnaire.personal_info.show',
             component: PersonalInfoView
+        },
+        {
+            path: '/kitkhvari/covid-mdgomareoba',
+            name: 'questionnaire.covid_condition.show',
+            component: CovidConditionView
         }
     ]
 })
