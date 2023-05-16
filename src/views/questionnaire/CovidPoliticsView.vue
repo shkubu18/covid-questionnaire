@@ -16,15 +16,37 @@
                 class="absolute top-56 right-40 z-10"
                 src="@/assets/images/covid-politics/background.png"
         />
-        <img
-                alt="red heart"
-                class="absolute top-280 right-575"
-                src="@/assets/images/covid-politics/red-heart.png"
-        />
+        <transition
+                enter-active-class="duration-500 ease-in-out"
+                enter-from-class="scale-150 -translate-x-10 -translate-y-6"
+        >
+            <img
+                    v-if="showElement"
+                    alt="red heart"
+                    class="absolute top-280 right-575"
+                    src="@/assets/images/covid-politics/red-heart.png"
+            />
+        </transition>
     </the-main>
 </template>
-<script setup>
+
+<script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import CovidPoliticsForm from "@/components/covid-politics/CovidPoliticsForm.vue";
 import TheMain from "@/components/shared/TheMain.vue";
+import {mapGetters} from "vuex";
+
+export default {
+    components: {
+        TheHeader,
+        CovidPoliticsForm,
+        TheMain
+    },
+    mounted() {
+        this.$store.dispatch('setShowElement')
+    },
+    computed: {
+        ...mapGetters(["showElement"])
+    },
+}
 </script>
