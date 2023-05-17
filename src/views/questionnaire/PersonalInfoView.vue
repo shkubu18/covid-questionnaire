@@ -11,15 +11,37 @@
                 class="absolute top-24 right-40 z-10"
                 src="@/assets/images/personal-info/background.png"
         />
-        <img
-                alt="yellow line"
-                class="absolute top-325 right-80"
-                src="@/assets/images/personal-info/yellow-line.png"
-        />
+        <transition
+                enter-active-class="duration-200 ease-in"
+                enter-from-class="scale-x-[0.2] -translate-x-72 translate-y-3"
+        >
+            <img
+                    v-if="showElement"
+                    alt="yellow line"
+                    class="absolute top-325 right-80"
+                    src="@/assets/images/personal-info/yellow-line.png"
+            />
+        </transition>
     </the-main>
 </template>
-<script setup>
+
+<script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import PersonalInfoForm from "@/components/personal-info/PersonalInfoForm.vue";
 import TheMain from "@/components/shared/TheMain.vue";
+import {mapGetters} from "vuex";
+
+export default {
+    components: {
+        TheHeader,
+        PersonalInfoForm,
+        TheMain
+    },
+    mounted() {
+        this.$store.dispatch('setShowElement')
+    },
+    computed: {
+        ...mapGetters(["showElement"])
+    },
+}
 </script>
