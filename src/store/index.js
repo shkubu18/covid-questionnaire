@@ -1,6 +1,10 @@
 import {createStore} from "vuex";
+import personalInfoModule from "./modules/questionnaire/personalInfo"
 
 export default createStore({
+    modules: {
+        personalInfo: personalInfoModule
+    },
     state() {
         return {
             showElement: false
