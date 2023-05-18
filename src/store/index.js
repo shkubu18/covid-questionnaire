@@ -1,9 +1,11 @@
 import {createStore} from "vuex";
 import personalInfoModule from "./modules/questionnaire/personalInfo"
+import covidCondition from "./modules/questionnaire/covidCondition";
 
 export default createStore({
     modules: {
-        personalInfo: personalInfoModule
+        personalInfo: personalInfoModule,
+        covidCondition: covidCondition
     },
     state() {
         return {
