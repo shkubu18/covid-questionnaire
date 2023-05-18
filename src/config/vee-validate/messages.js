@@ -10,7 +10,7 @@ configure({
                 required: "გთხოვთ შეავსოთ მოცემული ველი",
                 email: "თქვენ მიერ შეყვანილი მეილი არასწორია",
                 min: "{field} უნდა შეიცავდეს მინიმუმ 0:{min} სიმბოლოს",
-                redberry_email: "გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)"
+                integer: 'გთხოვთ სწორად მიუთითეთ რაოდენობა'
             },
             names: {
                 first_name: "სახელი",
