@@ -12,6 +12,7 @@
             rules="required"
             type="radio"
             value="yes"
+            @click="clearInput('iAmWaiting', 'i_am_waiting')"
         />
         <label class="text-xl font-bold ml-4" for="yes">კი</label>
       </div>
@@ -23,6 +24,7 @@
             name="had_vaccine"
             type="radio"
             value="no"
+            @click="clearInput('vaccinationStage', 'vaccination_stage')"
         />
         <label class="text-xl font-bold ml-4" for="no">არა</label>
       </div>
@@ -43,7 +45,8 @@
             type="radio"
             value="first_dosage_and_registered_on_the_second"
         />
-        <label class="text-xl font-bold ml-4" for="yes">პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</label>
+        <label class="text-xl font-bold ml-4" for="first_dosage_and_registered_on_the_second">პირველი დოზა და
+          დარეგისტრირებული ვარ მეორეზე</label>
       </div>
       <div class="flex items-center pl-6 mb-6">
         <Field
@@ -54,22 +57,23 @@
             type="radio"
             value="fully_vaccinated"
         />
-        <label class="text-xl font-bold ml-4" for="no">სრულად აცრილი ვარ</label>
+        <label class="text-xl font-bold ml-4" for="fully_vaccinated">სრულად აცრილი ვარ</label>
       </div>
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="first_dosage_and_not_registered_on_the_second"
+            id="first_dosage_and_not_registered_yet"
             v-model="vaccinationStage"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
             name="vaccination_stage"
             type="radio"
-            value="first_dosage_and_not_registered_on_the_second"
+            value="first_dosage_and_not_registered_yet"
         />
-        <label class="text-xl font-bold ml-4" for="no">პირველი დოზა და არ დავრეგისტრირებულვარ
+        <label class="text-xl font-bold ml-4" for="first_dosage_and_not_registered_yet">პირველი დოზა და არ
+          დავრეგისტრირებულვარ
           მეორეზე</label>
       </div>
 
-      <div v-if="vaccinationStage === 'first_dosage_and_not_registered_on_the_second'" class="pl-16 pt-7">
+      <div v-if="vaccinationStage === 'first_dosage_and_not_registered_yet'" class="pl-16 pt-7">
         <p class="font-bold text-xl">
           რომ არ გადადო, <br> ბარემ ახლავე დარეგისტრირდი <br>
           <a class="text-blue-600" href="https://booking.moh.gov.ge/">https://booking.moh.gov.ge/</a>
@@ -85,47 +89,49 @@
 
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="registered_and_waiting_for_a_number"
-            v-model="vaccinationStage"
+            id="registered_and_waiting"
+            v-model="iAmWaiting"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="vaccination_stage"
+            name="i_am_waiting"
             rules="required"
             type="radio"
-            value="registered_and_waiting_for_a_number"
+            value="registered_and_waiting"
         />
-        <label class="text-xl font-bold ml-4" for="yes">დარეგისტრირებული ვარ და ველოდები რიცხვს</label>
+        <label class="text-xl font-bold ml-4" for="registered_and_waiting">დარეგისტრირებული ვარ და ველოდები
+          რიცხვს</label>
       </div>
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="does_not_plan"
-            v-model="vaccinationStage"
+            id="not_planning"
+            v-model="iAmWaiting"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="vaccination_stage"
+            name="i_am_waiting"
             type="radio"
-            value="does_not_plan"
+            value="not_planning"
         />
-        <label class="text-xl font-bold ml-4" for="no">არ ვგეგმავ</label>
+        <label class="text-xl font-bold ml-4" for="not_planning">არ ვგეგმავ</label>
       </div>
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="passed_and_plan_to_get_vaccinated"
-            v-model="vaccinationStage"
+            id="had_covid_and_planning_to_be_vaccinated"
+            v-model="iAmWaiting"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="vaccination_stage"
+            name="i_am_waiting"
             type="radio"
-            value="passed_and_plan_to_get_vaccinated"
+            value="had_covid_and_planning_to_be_vaccinated"
         />
-        <label class="text-xl font-bold ml-4" for="no">გადატანილი მაქვს და ვგეგმავ აცრას</label>
+        <label class="text-xl font-bold ml-4" for="had_covid_and_planning_to_be_vaccinated">გადატანილი მაქვს და ვგეგმავ
+          აცრას</label>
       </div>
 
-      <div v-if="vaccinationStage === 'does_not_plan'" class="pl-16 mt-12">
+      <div v-if="iAmWaiting === 'not_planning'" class="pl-16 mt-12">
         <a class="font-bold text-xl text-blue-600"
            href="https://booking.moh.gov.ge/">
           👉 https://booking.moh.gov.ge/
         </a>
       </div>
 
-      <div v-if="vaccinationStage === 'passed_and_plan_to_get_vaccinated'" class="font-bold text-xl mt-12 pl-16">
+      <div v-if="iAmWaiting === 'had_covid_and_planning_to_be_vaccinated'" class="font-bold text-xl mt-12 pl-16">
         <p class="mb-6">
           ახალი პროტოკოლით კოვიდის გადატანიდან 1 <br> თვის შემდეგ შეგიძლიათ
           ვაქცინის გაკეთება.
@@ -165,38 +171,54 @@ export default {
   data() {
     return {
       hadVaccine: '',
-      vaccinationStage: ''
+      vaccinationStage: '',
+      iAmWaiting: ''
     }
   },
   methods: {
     onSubmit() {
       this.$router.push({name: 'questionnaire.covid_politics.show'})
+    },
+    clearInput(input, keyToDelete) {
+      let storedQuestionnaire = JSON.parse(localStorage.getItem('questionnaire'));
+
+      delete storedQuestionnaire[keyToDelete];
+
+      localStorage.setItem('questionnaire', JSON.stringify(storedQuestionnaire));
+
+      this[input] = '';
     }
   },
   watch: {
     hadVaccine(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'hadVaccine',
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'had_vaccine',
         inputValue: value
       })
     },
     vaccinationStage(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'vaccinationStage',
-        inputValue: value
-      })
+      if (value !== '') {
+        this.$store.dispatch('storeQuestionnaire', {
+          inputName: 'vaccination_stage',
+          inputValue: value
+        })
+      }
+    },
+    iAmWaiting(value) {
+      if (value !== '') {
+        this.$store.dispatch('storeQuestionnaire', {
+          inputName: 'i_am_waiting',
+          inputValue: value
+        })
+      }
     },
   },
   created() {
-    const inputs = ['hadVaccine', 'vaccinationStage'];
+    const storedQuestionnaire = JSON.parse(localStorage.getItem('questionnaire'));
 
-    inputs.forEach((input) => {
-      const storedValue = localStorage.getItem(input);
-
-      if (storedValue) {
-        this[input] = storedValue;
-      }
-    });
+    this.hadVaccine = storedQuestionnaire.had_vaccine || '';
+    this.vaccinationStage = storedQuestionnaire.vaccination_stage || '';
+    this.iAmWaiting = storedQuestionnaire.i_am_waiting || '';
   }
 }
 </script>
