@@ -21,6 +21,20 @@ defineRule('date_format', (value) => {
     return true
 });
 
+defineRule('antibodies_date_format', (value) => {
+    const pattern = /^\s*((?:19|20)\d{2})\/(1[012]|0?[1-9])\/(3[01]|[12][0-9]|0?[1-9])\s*$/;
+
+    if (!value || !value.length) {
+        return true;
+    }
+
+    if (!pattern.test(value)) {
+        return 'გთხოვთ სწორად მიუთითეთ თარიღი'
+    }
+
+    return true
+});
+
 defineRule('redberry_email', (value) => {
     if (!value || !value.length) {
         return true;
