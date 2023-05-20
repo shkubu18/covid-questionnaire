@@ -6,7 +6,7 @@
       <div class="flex items-center pl-6 mb-6">
         <Field
             id="yes"
-            v-model="hasCovid"
+            v-model="hadCovid"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
             name="had_covid"
             rules="required"
@@ -18,57 +18,61 @@
       <div class="flex items-center pl-6 mb-6">
         <Field
             id="no"
-            v-model="hasCovid"
+            v-model="hadCovid"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
             name="had_covid"
             type="radio"
             value="no"
+            @click="clearInput(['hadAntibodyTest', 'covidSicknessDate', 'antibodiesTestDate', 'numberOfAntibodies'], ['had_antibody_test', 'covid_sickness_date', 'antibodies'])"
         />
         <label class="text-xl font-bold ml-4" for="no">არა</label>
       </div>
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="have_it_now"
-            v-model="hasCovid"
+            id="have_right_now"
+            v-model="hadCovid"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
             name="had_covid"
             type="radio"
-            value="have_it_now"
+            value="have_right_now"
+            @click="clearInput(['hadAntibodyTest', 'covidSicknessDate', 'antibodiesTestDate', 'numberOfAntibodies'], ['had_antibody_test', 'covid_sickness_date', 'antibodies'])"
         />
-        <label class="text-xl font-bold ml-4" for="have_it_now">ახლა მაქვს</label>
+        <label class="text-xl font-bold ml-4" for="have_right_now">ახლა მაქვს</label>
       </div>
     </div>
     <ErrorMessage class="pl-3.5 text-error-message-color" name="had_covid"/>
 
-    <div v-if="hasCovid === 'yes'" class="mb-12">
+    <div v-if="hadCovid === 'yes'" class="mb-12">
       <p class="text-2xl font-bold mb-6">ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
 
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="yes"
+            id="had_antibody_test_yes"
             v-model="hadAntibodyTest"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
             name="had_antibody_test"
             rules="required"
             type="radio"
             value="yes"
+            @click="clearInput(['covidSicknessDate'], ['covid_sickness_date'])"
         />
-        <label class="text-xl font-bold ml-4" for="yes">კი</label>
+        <label class="text-xl font-bold ml-4" for="had_antibody_test_yes">კი</label>
       </div>
       <div class="flex items-center pl-6 mb-6">
         <Field
-            id="no"
+            id="had_antibody_test_no"
             v-model="hadAntibodyTest"
             class="text-black focus:ring-0 h-6 w-6 accent-black"
             name="had_antibody_test"
             type="radio"
             value="no"
+            @click="clearInput(['antibodiesTestDate', 'numberOfAntibodies'], ['antibodies'])"
         />
-        <label class="text-xl font-bold ml-4" for="no">არა</label>
+        <label class="text-xl font-bold ml-4" for="had_antibody_test_no">არა</label>
       </div>
     </div>
 
-    <div v-if="hadAntibodyTest === 'yes' && hasCovid === 'yes'">
+    <div v-if="hadAntibodyTest === 'yes' && hadCovid === 'yes'">
       <p class="text-2xl font-bold mb-6">
         თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი <br> რიცხვი და ანტისხეულების რაოდენობა*
       </p>
@@ -79,7 +83,7 @@
             class="p-3 bg-transparent border-2 border-gray-600 placeholder:text-gray-600 focus:outline-none"
             name="test_date"
             placeholder="რიცხვი"
-            rules="date_format"
+            rules="antibodies_date_format"
             type="text"
         />
 
@@ -98,24 +102,23 @@
       </div>
     </div>
 
-    <div v-if="hadAntibodyTest === 'no'  && hasCovid === 'yes'">
+    <div v-if="hadAntibodyTest === 'no'  && hadCovid === 'yes'">
       <p class="text-2xl font-bold mb-6">მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br> როდის გქონდა Covid-19*
       </p>
 
       <div class="flex flex-col w-1/3 pl-6">
         <Field
-            v-model="dateOfPossessionOfCovid"
+            v-model="covidSicknessDate"
             class="p-3 bg-transparent border-2 border-gray-600 placeholder:text-gray-600 focus:outline-none"
-            name="date_of_possession_of_covid"
+            name="covid_sickness_date"
             placeholder="დდ/თთ/წწ"
             rules="required|date_format"
             type="text"
         />
 
-        <ErrorMessage class="pl-3.5 mt-3 text-error-message-color" name="date_of_possession_of_covid"/>
+        <ErrorMessage class="pl-3.5 mt-3 text-error-message-color" name="covid_sickness_date"/>
       </div>
     </div>
-
   </ValidationForm>
 
   <div class="absolute left-[46.5%] w-40 bottom-28 flex justify-between z-20">
@@ -143,60 +146,73 @@ export default {
   },
   data() {
     return {
-      hasCovid: '',
+      hadCovid: '',
       hadAntibodyTest: '',
       antibodiesTestDate: '',
       numberOfAntibodies: '',
-      dateOfPossessionOfCovid: ''
+      covidSicknessDate: ''
     }
   },
   methods: {
     onSubmit() {
       this.$router.push({name: 'questionnaire.had_vaccine.show'})
+    },
+    clearInput(inputs, keysToDelete) {
+      let storedQuestionnaire = JSON.parse(localStorage.getItem('questionnaire'));
+
+      keysToDelete.forEach((keyToDelete) => {
+        delete storedQuestionnaire[keyToDelete];
+      })
+
+      localStorage.setItem('questionnaire', JSON.stringify(storedQuestionnaire));
+
+      inputs.forEach((input) => {
+        this[input] = ''
+      })
     }
   },
   watch: {
-    hasCovid(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'hasCovid',
+    hadCovid(value) {
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'had_covid',
         inputValue: value
       })
     },
     hadAntibodyTest(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'hadAntibodyTest',
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'had_antibody_test',
         inputValue: value
       })
     },
     antibodiesTestDate(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'antibodiesTestDate',
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'test_date',
         inputValue: value
       })
     },
     numberOfAntibodies(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'numberOfAntibodies',
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'number',
         inputValue: value
       })
+
     },
-    dateOfPossessionOfCovid(value) {
-      this.$store.dispatch('covidCondition/storeInputValue', {
-        inputName: 'dateOfPossessionOfCovid',
-        inputValue: value
+    covidSicknessDate(value) {
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'covid_sickness_date',
+        inputValue: value,
       })
+
     }
   },
   created() {
-    const inputs = ['hasCovid', 'hadAntibodyTest', 'antibodiesTestDate', 'numberOfAntibodies', 'dateOfPossessionOfCovid'];
+    const storedQuestionnaire = JSON.parse(localStorage.getItem('questionnaire'));
 
-    inputs.forEach((input) => {
-      const storedValue = localStorage.getItem(input);
-
-      if (storedValue) {
-        this[input] = storedValue;
-      }
-    });
+    this.hadCovid = storedQuestionnaire.had_covid || '';
+    this.hadAntibodyTest = storedQuestionnaire.had_antibody_test || '';
+    this.antibodiesTestDate = storedQuestionnaire.antibodies ? storedQuestionnaire.antibodies.test_date : '';
+    this.numberOfAntibodies = storedQuestionnaire.antibodies ? storedQuestionnaire.antibodies.number : '';
+    this.covidSicknessDate = storedQuestionnaire.covid_sickness_date || '';
   }
 }
 </script>
