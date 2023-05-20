@@ -3,75 +3,55 @@
     <div class="mb-12">
       <p class="text-2xl font-bold mb-6">უკვე აცრილი ხარ?*</p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="yes"
-            v-model="hadVaccine"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_vaccine"
-            rules="required"
-            type="radio"
-            value="yes"
-            @click="clearInput('iAmWaiting', 'i_am_waiting')"
-        />
-        <label class="text-xl font-bold ml-4" for="yes">კი</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="no"
-            v-model="hadVaccine"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_vaccine"
-            type="radio"
-            value="no"
-            @click="clearInput('vaccinationStage', 'vaccination_stage')"
-        />
-        <label class="text-xl font-bold ml-4" for="no">არა</label>
-      </div>
-      <ErrorMessage class="pl-3.5 text-error-message-color" name="had_vaccine"/>
+      <input-radio
+          id="yes"
+          v-model="hadVaccine"
+          label="კი"
+          name="had_vaccine"
+          rules="required"
+          value="yes"
+          @click="clearInput('iAmWaiting', 'i_am_waiting')"
+      />
+      <input-radio
+          id="no"
+          v-model="hadVaccine"
+          label="არა"
+          name="had_vaccine"
+          rules="required"
+          show-error="yes"
+          value="no"
+          @click="clearInput('vaccinationStage', 'vaccination_stage')"
+      />
     </div>
-
 
     <div v-if="hadVaccine === 'yes'" class="mb-12">
       <p class="text-2xl font-bold mb-6">აირჩიე რა ეტაპზე ხარ?*</p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="first_dosage_and_registered_on_the_second"
-            v-model="vaccinationStage"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="vaccination_stage"
-            rules="required"
-            type="radio"
-            value="first_dosage_and_registered_on_the_second"
-        />
-        <label class="text-xl font-bold ml-4" for="first_dosage_and_registered_on_the_second">პირველი დოზა და
-          დარეგისტრირებული ვარ მეორეზე</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="fully_vaccinated"
-            v-model="vaccinationStage"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="vaccination_stage"
-            type="radio"
-            value="fully_vaccinated"
-        />
-        <label class="text-xl font-bold ml-4" for="fully_vaccinated">სრულად აცრილი ვარ</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="first_dosage_and_not_registered_yet"
-            v-model="vaccinationStage"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="vaccination_stage"
-            type="radio"
-            value="first_dosage_and_not_registered_yet"
-        />
-        <label class="text-xl font-bold ml-4" for="first_dosage_and_not_registered_yet">პირველი დოზა და არ
-          დავრეგისტრირებულვარ
-          მეორეზე</label>
-      </div>
+      <input-radio
+          id="first_dosage_and_registered_on_the_second"
+          v-model="vaccinationStage"
+          label="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
+          name="vaccination_stage"
+          rules="required"
+          value="first_dosage_and_registered_on_the_second"
+      />
+      <input-radio
+          id="fully_vaccinated"
+          v-model="vaccinationStage"
+          label="სრულად აცრილი ვარ"
+          name="vaccination_stage"
+          rules="required"
+          value="fully_vaccinated"
+      />
+      <input-radio
+          id="first_dosage_and_not_registered_yet"
+          v-model="vaccinationStage"
+          label="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
+          name="vaccination_stage"
+          rules="required"
+          show-error="yes"
+          value="first_dosage_and_not_registered_yet"
+      />
 
       <div v-if="vaccinationStage === 'first_dosage_and_not_registered_yet'" class="pl-16 pt-7">
         <p class="font-bold text-xl">
@@ -79,50 +59,36 @@
           <a class="text-blue-600" href="https://booking.moh.gov.ge/">https://booking.moh.gov.ge/</a>
         </p>
       </div>
-
-      <ErrorMessage class="pl-3.5 text-error-message-color" name="vaccination_stage"/>
     </div>
-
 
     <div v-if="hadVaccine === 'no'">
       <p class="text-2xl font-bold mb-6">რას ელოდები?*</p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="registered_and_waiting"
-            v-model="iAmWaiting"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="i_am_waiting"
-            rules="required"
-            type="radio"
-            value="registered_and_waiting"
-        />
-        <label class="text-xl font-bold ml-4" for="registered_and_waiting">დარეგისტრირებული ვარ და ველოდები
-          რიცხვს</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="not_planning"
-            v-model="iAmWaiting"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="i_am_waiting"
-            type="radio"
-            value="not_planning"
-        />
-        <label class="text-xl font-bold ml-4" for="not_planning">არ ვგეგმავ</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="had_covid_and_planning_to_be_vaccinated"
-            v-model="iAmWaiting"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="i_am_waiting"
-            type="radio"
-            value="had_covid_and_planning_to_be_vaccinated"
-        />
-        <label class="text-xl font-bold ml-4" for="had_covid_and_planning_to_be_vaccinated">გადატანილი მაქვს და ვგეგმავ
-          აცრას</label>
-      </div>
+      <input-radio
+          id="registered_and_waiting"
+          v-model="iAmWaiting"
+          label="დარეგისტრირებული ვარ და ველოდები რიცხვს"
+          name="i_am_waiting"
+          rules="required"
+          value="registered_and_waiting"
+      />
+      <input-radio
+          id="not_planning"
+          v-model="iAmWaiting"
+          label="არ ვგეგმავ"
+          name="i_am_waiting"
+          rules="required"
+          value="not_planning"
+      />
+      <input-radio
+          id="had_covid_and_planning_to_be_vaccinated"
+          v-model="iAmWaiting"
+          label="გადატანილი მაქვს და ვგეგმავ აცრას"
+          name="i_am_waiting"
+          rules="required"
+          show-error="yes"
+          value="had_covid_and_planning_to_be_vaccinated"
+      />
 
       <div v-if="iAmWaiting === 'not_planning'" class="pl-16 mt-12">
         <a class="font-bold text-xl text-blue-600"
@@ -141,8 +107,6 @@
           https://booking.moh.gov.ge/
         </a>
       </div>
-
-      <ErrorMessage class="pl-3.5 text-error-message-color" name="vaccination_stage"/>
     </div>
   </ValidationForm>
 
@@ -157,16 +121,16 @@
 </template>
 
 <script>
-import {Form as ValidationForm, Field, ErrorMessage} from "vee-validate";
+import {Form as ValidationForm} from "vee-validate";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
+import InputRadio from "@/components/ui/inputs/InputRadio.vue";
 
 export default {
   components: {
+    InputRadio,
     IconArrowLeft, IconArrowRight,
     ValidationForm,
-    Field,
-    ErrorMessage,
   },
   data() {
     return {

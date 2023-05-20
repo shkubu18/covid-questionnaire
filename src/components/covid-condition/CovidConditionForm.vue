@@ -3,73 +3,57 @@
     <div class="mb-12">
       <p class="text-2xl font-bold mb-6">გაქვს გადატანილი Covid-19?*</p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="yes"
-            v-model="hadCovid"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_covid"
-            rules="required"
-            type="radio"
-            value="yes"
-        />
-        <label class="text-xl font-bold ml-4" for="yes">კი</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="no"
-            v-model="hadCovid"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_covid"
-            type="radio"
-            value="no"
-            @click="clearInput(['hadAntibodyTest', 'covidSicknessDate', 'antibodiesTestDate', 'numberOfAntibodies'], ['had_antibody_test', 'covid_sickness_date', 'antibodies'])"
-        />
-        <label class="text-xl font-bold ml-4" for="no">არა</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="have_right_now"
-            v-model="hadCovid"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_covid"
-            type="radio"
-            value="have_right_now"
-            @click="clearInput(['hadAntibodyTest', 'covidSicknessDate', 'antibodiesTestDate', 'numberOfAntibodies'], ['had_antibody_test', 'covid_sickness_date', 'antibodies'])"
-        />
-        <label class="text-xl font-bold ml-4" for="have_right_now">ახლა მაქვს</label>
-      </div>
+      <input-radio
+          id="yes"
+          v-model="hadCovid"
+          label="კი"
+          name="had_covid"
+          rules="required"
+          value="yes"
+      />
+      <input-radio
+          id="no"
+          v-model="hadCovid"
+          label="არა"
+          name="had_covid"
+          rules="required"
+          value="no"
+          @click="clearInput(['hadAntibodyTest', 'covidSicknessDate', 'antibodiesTestDate', 'numberOfAntibodies'], ['had_antibody_test', 'covid_sickness_date', 'antibodies'])"
+      />
+      <input-radio
+          id="have_right_now"
+          v-model="hadCovid"
+          label="ახლა მაქვს"
+          name="had_covid"
+          rules="required"
+          show-error="yes"
+          value="have_right_now"
+          @click="clearInput(['hadAntibodyTest', 'covidSicknessDate', 'antibodiesTestDate', 'numberOfAntibodies'], ['had_antibody_test', 'covid_sickness_date', 'antibodies'])"
+      />
     </div>
-    <ErrorMessage class="pl-3.5 text-error-message-color" name="had_covid"/>
 
     <div v-if="hadCovid === 'yes'" class="mb-12">
       <p class="text-2xl font-bold mb-6">ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="had_antibody_test_yes"
-            v-model="hadAntibodyTest"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_antibody_test"
-            rules="required"
-            type="radio"
-            value="yes"
-            @click="clearInput(['covidSicknessDate'], ['covid_sickness_date'])"
-        />
-        <label class="text-xl font-bold ml-4" for="had_antibody_test_yes">კი</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="had_antibody_test_no"
-            v-model="hadAntibodyTest"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="had_antibody_test"
-            type="radio"
-            value="no"
-            @click="clearInput(['antibodiesTestDate', 'numberOfAntibodies'], ['antibodies'])"
-        />
-        <label class="text-xl font-bold ml-4" for="had_antibody_test_no">არა</label>
-      </div>
+      <input-radio
+          id="had_antibody_test_yes"
+          v-model="hadAntibodyTest"
+          label="კი"
+          name="had_antibody_test"
+          rules="required"
+          value="yes"
+          @click="clearInput(['covidSicknessDate'], ['covid_sickness_date'])"
+      />
+      <input-radio
+          id="had_antibody_test_no"
+          v-model="hadAntibodyTest"
+          label="არა"
+          name="had_antibody_test"
+          rules="required"
+          show-error="yes"
+          value="no"
+          @click="clearInput(['antibodiesTestDate', 'numberOfAntibodies'], ['antibodies'])"
+      />
     </div>
 
     <div v-if="hadAntibodyTest === 'yes' && hadCovid === 'yes'">
@@ -78,45 +62,33 @@
       </p>
 
       <div class="flex flex-col mb-10 w-1/3 pl-6">
-        <Field
+        <input-text
             v-model="antibodiesTestDate"
-            class="p-3 bg-transparent border-2 border-gray-600 placeholder:text-gray-600 focus:outline-none"
             name="test_date"
             placeholder="რიცხვი"
             rules="antibodies_date_format"
-            type="text"
         />
-
-        <ErrorMessage class="pl-3.5 mt-3 text-error-message-color" name="test_date"/>
-
-        <Field
+        <input-text
             v-model="numberOfAntibodies"
-            class="p-3 mt-6 bg-transparent border-2 border-gray-600 placeholder:text-gray-600 focus:outline-none"
             name="number"
             placeholder="ანტისხეულების რაოდენობა"
             rules="integer"
-            type="text"
         />
-
-        <ErrorMessage class="pl-3.5 mt-3 text-error-message-color" name="number"/>
       </div>
     </div>
 
     <div v-if="hadAntibodyTest === 'no'  && hadCovid === 'yes'">
-      <p class="text-2xl font-bold mb-6">მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br> როდის გქონდა Covid-19*
+      <p class="text-2xl font-bold mb-6">
+        მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br> როდის გქონდა Covid-19*
       </p>
 
       <div class="flex flex-col w-1/3 pl-6">
-        <Field
+        <input-text
             v-model="covidSicknessDate"
-            class="p-3 bg-transparent border-2 border-gray-600 placeholder:text-gray-600 focus:outline-none"
             name="covid_sickness_date"
             placeholder="დდ/თთ/წწ"
             rules="required|date_format"
-            type="text"
         />
-
-        <ErrorMessage class="pl-3.5 mt-3 text-error-message-color" name="covid_sickness_date"/>
       </div>
     </div>
   </ValidationForm>
@@ -132,17 +104,19 @@
 </template>
 
 <script>
-import {Form as ValidationForm, Field, ErrorMessage} from "vee-validate";
+import {Form as ValidationForm} from "vee-validate";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
+import InputRadio from "@/components/ui/inputs/InputRadio.vue";
+import InputText from "@/components/ui/inputs/InputText.vue";
 
 export default {
   components: {
+    InputText,
+    InputRadio,
     IconArrowLeft,
     IconArrowRight,
     ValidationForm,
-    Field,
-    ErrorMessage,
   },
   data() {
     return {
@@ -208,7 +182,7 @@ export default {
   created() {
     const storedQuestionnaire = JSON.parse(localStorage.getItem('questionnaire'));
 
-    this.hadCovid = storedQuestionnaire.had_covid || '';
+    this.hadCovid = storedQuestionnaire.had_covid;
     this.hadAntibodyTest = storedQuestionnaire.had_antibody_test || '';
     this.antibodiesTestDate = storedQuestionnaire.antibodies ? storedQuestionnaire.antibodies.test_date : '';
     this.numberOfAntibodies = storedQuestionnaire.antibodies ? storedQuestionnaire.antibodies.number : '';

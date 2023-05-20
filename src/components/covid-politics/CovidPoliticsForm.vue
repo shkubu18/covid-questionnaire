@@ -6,53 +6,39 @@
         ჩაერთვება?*
       </p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="twice_a_week"
-            v-model="nonFormalMeetings"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="non_formal_meetings"
-            rules="required"
-            type="radio"
-            value="twice_a_week"
-        />
-        <label class="text-xl font-bold ml-4" for="twice_a_week">კვირაში ორჯერ</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="once_a_week"
-            v-model="nonFormalMeetings"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="non_formal_meetings"
-            type="radio"
-            value="once_a_week"
-        />
-        <label class="text-xl font-bold ml-4" for="once_a_week">კვირაში ერთხელ</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="once_in_a_two_weeks"
-            v-model="nonFormalMeetings"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="non_formal_meetings"
-            type="radio"
-            value="once_in_a_two_weeks"
-        />
-        <label class="text-xl font-bold ml-4" for="once_in_a_two_weeks">ორ კვირაში ერთხელ</label>
-      </div>
-      <div class="flex items-center pl-6 mb-4">
-        <Field
-            id="once_in_a_month"
-            v-model="nonFormalMeetings"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="non_formal_meetings"
-            type="radio"
-            value="once_in_a_month"
-        />
-        <label class="text-xl font-bold ml-4" for="once_in_a_month">თვეში ერთხელ</label>
-      </div>
-
-      <ErrorMessage class="pl-3.5 text-error-message-color" name="non_formal_meetings"/>
+      <input-radio
+          id="twice_a_week"
+          v-model="nonFormalMeetings"
+          label="კვირაში ორჯერ"
+          name="non_formal_meetings"
+          rules="required"
+          value="twice_a_week"
+      />
+      <input-radio
+          id="once_a_week"
+          v-model="nonFormalMeetings"
+          label="კვირაში ერთხელ"
+          name="non_formal_meetings"
+          rules="required"
+          value="once_a_week"
+      />
+      <input-radio
+          id="once_in_a_two_weeks"
+          v-model="nonFormalMeetings"
+          label="ორ კვირაში ერთხელ"
+          name="non_formal_meetings"
+          rules="required"
+          value="once_in_a_two_weeks"
+      />
+      <input-radio
+          id="once_in_a_month"
+          v-model="nonFormalMeetings"
+          label="თვეში ერთხელ"
+          name="non_formal_meetings"
+          rules="required"
+          show-error="yes"
+          value="once_in_a_month"
+      />
     </div>
 
     <div class="mb-12">
@@ -60,108 +46,70 @@
         კვირაში რამდენი დღე ისურვებდი ოფისიდან <br> მუშაობას?*
       </p>
 
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="0"
-            v-model="numberOfDaysFromOffice"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="number_of_days_from_office"
-            rules="required"
-            type="radio"
-            value="0"
-        />
-        <label class="text-xl font-bold ml-4" for="0">0</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="1"
-            v-model="numberOfDaysFromOffice"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="number_of_days_from_office"
-            type="radio"
-            value="1"
-        />
-        <label class="text-xl font-bold ml-4" for="1">1</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="2"
-            v-model="numberOfDaysFromOffice"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="number_of_days_from_office"
-            type="radio"
-            value="2"
-        />
-        <label class="text-xl font-bold ml-4" for="2">2</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="3"
-            v-model="numberOfDaysFromOffice"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="number_of_days_from_office"
-            type="radio"
-            value="3"
-        />
-        <label class="text-xl font-bold ml-4" for="3">3</label>
-      </div>
-      <div class="flex items-center pl-6 mb-6">
-        <Field
-            id="4"
-            v-model="numberOfDaysFromOffice"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="number_of_days_from_office"
-            type="radio"
-            value="4"
-        />
-        <label class="text-xl font-bold ml-4" for="4">4</label>
-      </div>
-      <div class="flex items-center pl-6 mb-4">
-        <Field
-            id="5"
-            v-model="numberOfDaysFromOffice"
-            class="text-black focus:ring-0 h-6 w-6 accent-black"
-            name="number_of_days_from_office"
-            type="radio"
-            value="5"
-        />
-        <label class="text-xl font-bold ml-4" for="5">5</label>
-      </div>
-
-      <ErrorMessage class="pl-3.5 text-error-message-color" name="number_of_days_from_office"/>
+      <input-radio
+          id="0"
+          v-model="numberOfDaysFromOffice"
+          label="0"
+          name="number_of_days_from_office"
+          rules="required"
+          value="0"
+      />
+      <input-radio
+          id="1"
+          v-model="numberOfDaysFromOffice"
+          label="1"
+          name="number_of_days_from_office"
+          rules="required"
+          value="1"
+      />
+      <input-radio
+          id="2"
+          v-model="numberOfDaysFromOffice"
+          label="2"
+          name="number_of_days_from_office"
+          rules="required"
+          value="2"
+      />
+      <input-radio
+          id="3"
+          v-model="numberOfDaysFromOffice"
+          label="3"
+          name="number_of_days_from_office"
+          rules="required"
+          value="3"
+      />
+      <input-radio
+          id="4"
+          v-model="numberOfDaysFromOffice"
+          label="4"
+          name="number_of_days_from_office"
+          rules="required"
+          value="4"
+      />
+      <input-radio
+          id="5"
+          v-model="numberOfDaysFromOffice"
+          label="5"
+          name="number_of_days_from_office"
+          rules="required"
+          show-error="yes"
+          value="5"
+      />
     </div>
 
-
     <div class="w-textarea-width">
-      <div class="flex flex-col mb-12">
-        <label class="text-2xl font-bold mb-6" for="what_about_meetings_in_live">
-          რას ფიქრობ ფიზიკურ შეკრებებზე?
-        </label>
-        <Field
-            id="what_about_meetings_in_live"
-            v-model="whatAboutMeetingsInLive"
-            as="textarea"
-            class="border-2 border-gray-600 bg-transparent p-2 focus:outline-none text-xl"
-            name="what_about_meetings_in_live"
-            rows="6"
-        >
-        </Field>
-      </div>
-      <div class="flex flex-col">
-        <label class="text-2xl font-bold mb-6" for="tell_us_your_opinion_about_us">
-          რას ფიქრობ არსებულ გარემოზე: <br> რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?
-        </label>
-        <Field
-            id="tell_us_your_opinion_about_us"
-            v-model="tellUsYourOpinionAboutUs"
-            as="textarea"
-            class="border-2 border-gray-600 bg-transparent p-2 focus:outline-none text-xl"
-            name="tell_us_your_opinion_about_us"
-            rows="6">
-        </Field>
-      </div>
+      <input-text-area
+          v-model="whatAboutMeetingsInLive"
+          label="რას ფიქრობ ფიზიკურ შეკრებებზე?"
+          name="what_about_meetings_in_live"
+      />
+      <input-text-area
+          v-model="tellUsYourOpinionAboutUs"
+          label="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
+          name="tell_us_your_opinion_about_us"
+      />
 
-      <div class="text-right mb-28">
+      <div class="text-right mb-28 -mt-7">
         <button
             class="bg-button-color text-white py-4 px-7 font-bold text-xl mt-14 rounded-full border-0"
             type="submit">
@@ -169,28 +117,30 @@
         </button>
       </div>
 
-      <button class="absolute right-1/2 bottom-28" type="submit">
+      <span class="absolute right-1/2 bottom-28">
         <icon-arrow-left></icon-arrow-left>
-      </button>
+      </span>
     </div>
   </ValidationForm>
 </template>
 
 
 <script>
-import {Form as ValidationForm, Field, ErrorMessage} from "vee-validate";
+import {Form as ValidationForm} from "vee-validate";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import {saveQuestionnaire} from "@/services/api/questionnaire";
 import axios from "@/config/axios/axios";
 import {mapGetters} from "vuex";
+import InputRadio from "@/components/ui/inputs/InputRadio.vue";
+import InputTextArea from "@/components/ui/inputs/InputTextArea.vue";
 
 
 export default {
   components: {
+    InputTextArea,
+    InputRadio,
     IconArrowLeft,
     ValidationForm,
-    Field,
-    ErrorMessage
   },
   data() {
     return {
