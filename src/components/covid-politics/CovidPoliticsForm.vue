@@ -131,8 +131,8 @@ import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
 import {saveQuestionnaire} from "@/services/api/questionnaire";
 import axios from "@/config/axios/axios";
 import {mapGetters} from "vuex";
-import InputRadio from "@/components/ui/inputs/InputRadio.vue";
-import InputTextArea from "@/components/ui/inputs/InputTextArea.vue";
+import InputRadio from "@/components/shared/inputs/InputRadio.vue";
+import InputTextArea from "@/components/shared/inputs/InputTextArea.vue";
 
 
 export default {

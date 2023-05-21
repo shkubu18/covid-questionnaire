@@ -124,7 +124,7 @@
 import {Form as ValidationForm} from "vee-validate";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
-import InputRadio from "@/components/ui/inputs/InputRadio.vue";
+import InputRadio from "@/components/shared/inputs/InputRadio.vue";
 
 export default {
   components: {
