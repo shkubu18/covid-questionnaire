@@ -1,4 +1,4 @@
-import axios from "@/config/axios/axios";
+import axios from "@/plugins/axios/axios";
 
 export async function saveQuestionnaire(questionnaire) {
     questionnaire['had_antibody_test'] ? questionnaire['had_antibody_test'] = questionnaire['had_antibody_test'] === 'yes' : null;
