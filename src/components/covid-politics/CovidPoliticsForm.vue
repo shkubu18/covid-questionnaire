@@ -109,17 +109,11 @@
           name="tell_us_your_opinion_about_us"
       />
 
-      <div class="text-right mb-28 -mt-7">
-        <button
-            class="bg-button-color text-white py-4 px-7 font-bold text-xl mt-14 rounded-full border-0"
-            type="submit">
-          დასრულება
-        </button>
-      </div>
+      <input-submit/>
 
-      <span class="absolute right-1/2 bottom-28">
+      <router-link :to="{name: 'questionnaire.had_vaccine.show'}" class="absolute right-1/2 bottom-28">
         <icon-arrow-left></icon-arrow-left>
-      </span>
+      </router-link>
     </div>
   </ValidationForm>
 </template>
@@ -133,10 +127,12 @@ import axios from "@/config/axios/axios";
 import {mapGetters} from "vuex";
 import InputRadio from "@/components/shared/inputs/InputRadio.vue";
 import InputTextArea from "@/components/shared/inputs/InputTextArea.vue";
+import InputSubmit from "@/components/ui/InputSubmit.vue";
 
 
 export default {
   components: {
+    InputSubmit,
     InputTextArea,
     InputRadio,
     IconArrowLeft,
