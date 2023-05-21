@@ -12,6 +12,7 @@
         src="@/assets/images/personal-info/background.png"
     />
     <transition
+        appear
         enter-active-class="duration-200 ease-in"
         enter-from-class="scale-x-[0.2] -translate-x-72 translate-y-3"
     >
