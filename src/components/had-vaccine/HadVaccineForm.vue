@@ -161,20 +161,16 @@ export default {
       })
     },
     vaccinationStage(value) {
-      if (value !== '') {
-        this.$store.dispatch('storeQuestionnaire', {
-          inputName: 'vaccination_stage',
-          inputValue: value
-        })
-      }
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'vaccination_stage',
+        inputValue: value
+      })
     },
     iAmWaiting(value) {
-      if (value !== '') {
-        this.$store.dispatch('storeQuestionnaire', {
-          inputName: 'i_am_waiting',
-          inputValue: value
-        })
-      }
+      this.$store.dispatch('storeQuestionnaire', {
+        inputName: 'i_am_waiting',
+        inputValue: value
+      })
     },
   },
   created() {
