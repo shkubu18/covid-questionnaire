@@ -9,7 +9,8 @@ export default {
             colors: {
                 'main-background': '#EAEAEA',
                 'button-color': '#208298',
-                'thanks-page-background': '#232323'
+                'thanks-page-background': '#232323',
+                'error-message-color': '#F15524'
             },
             width: {
                 'logo-width': '100px',

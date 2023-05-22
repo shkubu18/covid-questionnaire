@@ -5,6 +5,7 @@ import CovidConditionView from "@/views/questionnaire/CovidConditionView.vue";
 import HadVaccineView from "@/views/questionnaire/HadVaccineView.vue";
 import CovidPoliticsView from "@/views/questionnaire/CovidPoliticsView.vue";
 import ThankYouView from "@/views/ThankYouView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,10 @@ const router = createRouter({
             path: '/madloba',
             name: 'thank_you.show',
             component: ThankYouView
+        },
+        {
+            path: '/:notFound(.*)',
+            component: NotFoundView
         }
     ]
 })
