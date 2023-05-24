@@ -95,10 +95,10 @@
 
   <div class="absolute left-[46.5%] w-40 bottom-28 flex justify-between z-20">
     <router-link :to="{ name: 'questionnaire.personal_info.show' }">
-      <icon-arrow-left></icon-arrow-left>
+      <icon-arrow-left/>
     </router-link>
     <button form="covid-condition-form">
-      <icon-arrow-right></icon-arrow-right>
+      <icon-arrow-right/>
     </button>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <the-main>
-    <the-header page="1/4"></the-header>
-    <personal-info-form></personal-info-form>
+    <the-header page="1/4"/>
+    <personal-info-form/>
 
     <hr class="border-black w-60 mb-4">
     <p class="text-gray-500 mt-12">*-ით მონიშნული ველების შევსება <br> სავალდებულოა</p>

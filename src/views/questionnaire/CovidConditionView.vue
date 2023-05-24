@@ -1,7 +1,7 @@
 <template>
   <the-main>
-    <the-header page="2/4"></the-header>
-    <covid-condition-form></covid-condition-form>
+    <the-header page="2/4"/>
+    <covid-condition-form/>
 
     <img
         alt="boy with cap"

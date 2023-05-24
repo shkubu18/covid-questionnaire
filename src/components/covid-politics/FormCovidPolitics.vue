@@ -112,7 +112,7 @@
       <input-submit/>
 
       <router-link :to="{name: 'questionnaire.had_vaccine.show'}" class="absolute right-1/2 bottom-28">
-        <icon-arrow-left></icon-arrow-left>
+        <icon-arrow-left/>
       </router-link>
     </div>
   </ValidationForm>

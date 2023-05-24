@@ -1,6 +1,6 @@
 <template>
   <the-main>
-    <the-header page="4/4"></the-header>
+    <the-header page="4/4"/>
 
     <p class="text-2xl w-heading-text mb-12">
       რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო, რომელსაც ჩვენი
@@ -9,7 +9,7 @@
       ყოველდღიური კომუნიკაციაც გაიშვიათდა.
     </p>
 
-    <covid-politics-form></covid-politics-form>
+    <covid-politics-form/>
 
     <img
         alt="boy with a bicycle"

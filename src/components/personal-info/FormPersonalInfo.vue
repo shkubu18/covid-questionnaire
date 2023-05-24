@@ -23,7 +23,7 @@
     />
   </ValidationForm>
   <button class="absolute right-1/2 bottom-28" form="personal-info-form">
-    <icon-arrow-right></icon-arrow-right>
+    <icon-arrow-right/>
   </button>
 </template>
 

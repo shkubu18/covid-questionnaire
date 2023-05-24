@@ -1,7 +1,7 @@
 <template>
   <the-main>
-    <the-header page="3/4"></the-header>
-    <had-vaccine-form></had-vaccine-form>
+    <the-header page="3/4"/>
+    <had-vaccine-form/>
 
     <img
         alt="doctor"

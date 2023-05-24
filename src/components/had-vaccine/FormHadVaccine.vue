@@ -112,10 +112,10 @@
 
   <div class="absolute left-[46.5%] w-40 bottom-28 flex justify-between">
     <router-link :to="{ name: 'questionnaire.covid_condition.show' }">
-      <icon-arrow-left></icon-arrow-left>
+      <icon-arrow-left/>
     </router-link>
     <button form="had-vaccine-form">
-      <icon-arrow-right></icon-arrow-right>
+      <icon-arrow-right/>
     </button>
   </div>
 </template>
