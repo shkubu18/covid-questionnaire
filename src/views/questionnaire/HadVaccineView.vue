@@ -25,7 +25,7 @@
 
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import HadVaccineForm from "@/components/had-vaccine/HadVaccineForm.vue";
+import HadVaccineForm from "@/components/had-vaccine/FormHadVaccine.vue";
 import TheMain from "@/components/shared/TheMain.vue";
 import {mapGetters} from "vuex";
 
