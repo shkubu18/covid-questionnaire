@@ -29,7 +29,7 @@ defineRule('antibodies_date_format', (value) => {
     }
 
     if (!pattern.test(value)) {
-        return 'გთხოვთ სწორად მიუთითეთ თარიღი'
+        return 'გთხოვთ სწორად მიუთითეთ თარიღი (წწ/თთ/დდ)'
     }
 
     return true
