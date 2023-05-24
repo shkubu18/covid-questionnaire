@@ -30,7 +30,7 @@
 <script>
 import {Form as ValidationForm, Field, ErrorMessage} from "vee-validate";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
-import InputText from "@/components/shared/inputs/InputText.vue";
+import InputText from "@/components/ui/InputText.vue";
 
 export default {
   components: {
