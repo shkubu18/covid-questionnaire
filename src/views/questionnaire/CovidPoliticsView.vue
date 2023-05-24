@@ -34,7 +34,7 @@
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
 import CovidPoliticsForm from "@/components/covid-politics/FormCovidPolitics.vue";
-import TheMain from "@/components/shared/TheMain.vue";
+import TheMain from "@/components/layouts/TheMain.vue";
 import {mapGetters} from "vuex";
 
 export default {

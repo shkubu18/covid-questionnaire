@@ -127,7 +127,7 @@ import axios from "@/plugins/axios/axios";
 import {mapGetters} from "vuex";
 import InputRadio from "@/components/shared/inputs/InputRadio.vue";
 import InputTextArea from "@/components/shared/inputs/InputTextArea.vue";
-import InputSubmit from "@/components/ui/InputSubmit.vue";
+import InputSubmit from "@/components/ui/ButtonSubmit.vue";
 
 
 export default {
