@@ -1,7 +1,7 @@
 <template>
   <the-main>
-    <the-header page="2/4"></the-header>
-    <covid-condition-form></covid-condition-form>
+    <the-header page="2/4"/>
+    <covid-condition-form/>
 
     <img
         alt="boy with cap"
@@ -25,8 +25,8 @@
 
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import CovidConditionForm from "@/components/covid-condition/CovidConditionForm.vue";
-import TheMain from "@/components/shared/TheMain.vue";
+import CovidConditionForm from "@/components/covid-condition/FormCovidCondition.vue";
+import TheMain from "@/components/layouts/TheMain.vue";
 import {mapGetters} from "vuex";
 
 export default {

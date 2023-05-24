@@ -9,5 +9,5 @@
   </the-main>
 </template>
 <script setup>
-import TheMain from "@/components/shared/TheMain.vue";
+import TheMain from "@/components/layouts/TheMain.vue";
 </script>

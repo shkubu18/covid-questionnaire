@@ -112,10 +112,10 @@
 
   <div class="absolute left-[46.5%] w-40 bottom-28 flex justify-between">
     <router-link :to="{ name: 'questionnaire.covid_condition.show' }">
-      <icon-arrow-left></icon-arrow-left>
+      <icon-arrow-left/>
     </router-link>
     <button form="had-vaccine-form">
-      <icon-arrow-right></icon-arrow-right>
+      <icon-arrow-right/>
     </button>
   </div>
 </template>
@@ -124,7 +124,7 @@
 import {Form as ValidationForm} from "vee-validate";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
 import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
-import InputRadio from "@/components/shared/inputs/InputRadio.vue";
+import InputRadio from "@/components/ui/InputRadio.vue";
 
 export default {
   components: {

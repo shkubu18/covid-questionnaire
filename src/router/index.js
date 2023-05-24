@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from "@/views/HomeView.vue"
 import PersonalInfoView from "@/views/questionnaire/PersonalInfoView.vue"
 import CovidConditionView from "@/views/questionnaire/CovidConditionView.vue";
 import HadVaccineView from "@/views/questionnaire/HadVaccineView.vue";

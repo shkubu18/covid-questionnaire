@@ -1,7 +1,7 @@
 <template>
   <the-main>
-    <the-header page="3/4"></the-header>
-    <had-vaccine-form></had-vaccine-form>
+    <the-header page="3/4"/>
+    <had-vaccine-form/>
 
     <img
         alt="doctor"
@@ -25,8 +25,8 @@
 
 <script>
 import TheHeader from "@/components/shared/TheHeader.vue";
-import HadVaccineForm from "@/components/had-vaccine/HadVaccineForm.vue";
-import TheMain from "@/components/shared/TheMain.vue";
+import HadVaccineForm from "@/components/had-vaccine/FormHadVaccine.vue";
+import TheMain from "@/components/layouts/TheMain.vue";
 import {mapGetters} from "vuex";
 
 export default {
